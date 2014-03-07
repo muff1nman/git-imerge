@@ -21,6 +21,10 @@ html: $(module)/talk.html
 $(module)/talk.html: $(module)/talk.rst
 	rst2s5 --theme=small-white --current-slide $< $@
 
+.PHONY: test
+test:
+	python -m unittest discover test
+
 install: $(BIN)
 	install $(BIN) $(PREFIX)/bin
 
